@@ -1,5 +1,13 @@
 # F5 Networks and Ansible Demo Deployment
 
+## Ubuntu install
+```
+$ sudo apt update
+$ sudo apt install software-properties-common
+$ sudo apt-add-repository --yes --update ppa:ansible/ansible
+$ sudo apt install ansible
+```
+
 ## Config Files
 ~/.ansible.cfg:
 ```
