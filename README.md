@@ -3,6 +3,7 @@
 ## Ubuntu install
 ```
 $ sudo apt update
+$ sudo apt upgrade
 $ sudo apt install software-properties-common
 $ sudo apt-add-repository --yes --update ppa:ansible/ansible
 $ sudo apt install ansible
@@ -14,7 +15,7 @@ $ sudo apt install ansible
 [defaults]
 connection = smart
 timeout = 60
-inventory = /home/centos/networking-workshop/lab_inventory/hosts
+inventory = ~/f5-ansible/hosts
 host_key_checking = False
 private_key_file = /home/centos/.ssh/aws-private.pem
 ```
@@ -23,11 +24,11 @@ lab_inventory/hosts:
 ```
 [all:vars]
 ansible_user=centos
-ansible_ssh_pass=f5ansible
+ansible_ssh_pass=
 ansible_ssh_private_key_file=/home/centos/.ssh/aws-private.pem
 
 [lb]
-f5 ansible_host=10.1.20.7 ansible_user=admin private_ip=10.1.1.7 destination_ip=10.1.20.100 ansible_ssh_pass=f5ansible
+f5 ansible_host=10.1.20.7 ansible_user=admin private_ip=10.1.1.7 destination_ip=10.1.20.100 ansible_ssh_pass=
 
 [control]
 ansible ansible_host=10.1.1.4 ansible_user=centos
