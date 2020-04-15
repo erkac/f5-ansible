@@ -20,7 +20,7 @@ host_key_checking = False
 private_key_file = /home/centos/.ssh/aws-private.pem
 ```
 
-lab_inventory/hosts:
+./f5-ansible/hosts:
 ```
 [all:vars]
 ansible_user=centos
