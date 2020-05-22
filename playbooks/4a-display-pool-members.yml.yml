@@ -10,9 +10,9 @@
       provider:
         server: "{{private_ip}}"
         user: "{{ansible_user}}"
-        password: "{{ansible_ssh_pass}}"
-        server_port: 8443
-        validate_certs: "no"
+        password: "{{ansible_pass}}"
+        server_port: "{{mgmt_port}}"
+        validate_certs: no
       gather_subset:
        - ltm-pools
     register: bigip_device_facts

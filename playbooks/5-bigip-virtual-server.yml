@@ -10,11 +10,11 @@
       provider:
         server: "{{private_ip}}"
         user: "{{ansible_user}}"
-        password: "{{ansible_ssh_pass}}"
-        server_port: 8443
+        password: "{{ansible_pass}}"
+        server_port: "{{mgmt_port}}"
         validate_certs: no
       name: "vip"
-      destination: "{{destination_ip}}"
+      destination: "{{vip}}"
       port: "443"
       enabled_vlans: "all"
       all_profiles: ['http','clientssl','oneconnect']

@@ -1,23 +1,35 @@
 # F5 Networks and Ansible Demo Deployment
 
-## Ubuntu install
-```
+## Installation
+
+### Ubuntu
+
+```shell
 $ sudo apt update
 $ sudo apt upgrade
 $ sudo apt install software-properties-common
 $ sudo apt-add-repository --yes --update ppa:ansible/ansible
 $ sudo apt install ansible
 ```
+### macOS
+```shell
+brew install ansible
+```
+or
+```shell
+pip install ansible
+pip install jmespath
+```
 
 ## Config Files
 ~/.ansible.cfg:
 ```
 [defaults]
+[defaults]
 connection = smart
 timeout = 60
-inventory = ~/f5-ansible/hosts
 host_key_checking = False
-private_key_file = /home/centos/.ssh/aws-private.pem
+interpreter_python = auto_silent
 ```
 
 ./f5-ansible/hosts:
@@ -37,6 +49,23 @@ ansible ansible_host=10.1.1.4 ansible_user=centos
 host1 ansible_host=10.1.20.5 ansible_user=centos private_ip=10.1.1.5
 host2 ansible_host=10.1.20.6 ansible_user=centos private_ip=10.1.1.6
 ```
+
+## Ansible notes
+
+* use `ansible-playbok -i <hosts> playbook` option to specify the hosts file
+
+## Demo Notes
+- based on Agility 2020 - 🦅 Ansible Lab 101
+- Credentials:
+    - Ansible host:
+        - username: centos
+        - password: f5ansible
+
+    - BIG-IP:
+        - login: admin
+        - password: f5ansible
+
+
 
 ## Playbook examples
 
