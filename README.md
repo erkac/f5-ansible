@@ -1,6 +1,6 @@
 # F5 Networks and Ansible Demo Deployment
 
-## Installation
+## Ansible Installation
 
 ### Ubuntu
 
@@ -55,17 +55,8 @@ host2 ansible_host=10.1.20.6 ansible_user=centos private_ip=10.1.1.6
 * use `ansible-playbok -i <hosts> playbook` option to specify the hosts file
 
 ## Demo Notes
-- based on Agility 2020 - 🦅 Ansible Lab 101
-- Credentials:
-    - Ansible host:
-        - username: centos
-        - password: f5ansible
-
-    - BIG-IP:
-        - login: admin
-        - password: f5ansible
-
-
+- Ansible part is based on Agility 2020 - 🦅 Ansible Lab 101, F5ers can use UDF
+- for local deployment use F5-CLI/DO deployment from my [f5-demo-lab](https://github.com/erkac/f5-demo-lab)
 
 ## Playbook examples
 
