@@ -31,7 +31,7 @@ host_key_checking = False
 interpreter_python = auto_silent
 ```
 
-./f5-ansible/hosts:
+./hosts:
 ```
 [all:vars]
 ansible_user=centos
