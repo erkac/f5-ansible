@@ -4,7 +4,7 @@ ansible_ssh_pass=
 ansible_ssh_private_key_file=/home/centos/.ssh/aws-private.pem
 
 [lb]
-f5 ansible_host=10.1.20.7 ansible_user=admin private_ip=10.1.1.7 destination_ip=10.1.20.100 ansible_ssh_pass=
+f5 ansible_host=10.1.20.7 ansible_user=admin ansible_pass=admin private_ip=10.1.1.245 mgmt_port=443 vip=10.1.20.100
 
 [control]
 ansible ansible_host=10.1.1.4 ansible_user=centos

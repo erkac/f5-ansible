@@ -13,18 +13,17 @@ $ sudo apt install ansible
 ```
 ### macOS
 ```shell
-brew install ansible
+$ brew install ansible
 ```
 or
 ```shell
-pip install ansible
-pip install jmespath
+$ pip install ansible
+$ pip install jmespath
 ```
 
 ## Config Files
 ~/.ansible.cfg:
 ```
-[defaults]
 [defaults]
 connection = smart
 timeout = 60
@@ -52,10 +51,10 @@ host2 ansible_host=10.1.20.6 ansible_user=centos private_ip=10.1.1.6
 
 ## Ansible notes
 
-* use `ansible-playbok -i <hosts> playbook` option to specify the hosts file
+* use `ansible-playbok -i <hosts> playbook` option to specify the hosts file or use _inventory_ option in the _~/.ansible.cfg_ file
 
 ## Demo Notes
-- Ansible part is based on Agility 2020 - 🦅 Ansible Lab 101, F5ers can use UDF
+- Ansible part is based on the F5 _Agility 2020 - 🦅 Ansible Lab 101_, F5ers can use the UDF
 - for local deployment use F5-CLI/DO deployment from my [f5-demo-lab](https://github.com/erkac/f5-demo-lab)
 
 ## Playbook examples
