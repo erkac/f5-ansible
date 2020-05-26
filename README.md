@@ -1,4 +1,4 @@
-# F5 Networks and Ansible Demo Deployment
+# F5 and Ansible Demo Deployment
 
 ## Ansible Installation
 
@@ -60,7 +60,7 @@ host2 ansible_host=10.1.20.6 ansible_user=centos private_ip=10.1.1.6
 ## Playbook examples
 
 ### ./playbooks/1-bigip-facts.yml
-```
+```shell
 $ ansible-playbook bigip-facts.yml
 $ ansible-playbook bigip-facts.yml --skip-tags=debug
 ```
@@ -88,7 +88,7 @@ $ ansible-playbook bigip-facts.yml --skip-tags=debug
 - irule1 and irule2 has to be in the current folder, even the ansible whould find those in subfolders, but then creating that iRule on F5 cause issues if the name contains some subfolders
 
 ### ./playbooks/7-bigip-config.yml
-- configuration has to be saved manualy
+- **configuration** has to be **saved manualy**
 
 ### ./playbooks/8-disable-pool-member.yml
 - Once you set the provider you can re-use this key in future tasks instead of giving the server/user/password/server_port and validate_certs info to each task.
