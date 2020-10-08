@@ -109,6 +109,18 @@ $ ansible-playbook bigip-facts.yml --skip-tags=debug
 - add the _rescue_ stanza. The tasks under the rescue stanza will be identical to ./playbooks/9-bigip-delete-configuration.yml. The bigip_pool_member task does not need to re-enterered since by deleting the nodes and pool will remove all configuration. If any task within the block fails, the _rescue_ stanza will execute in order. The VIP, pool, and nodes will be removed gracefully
 - add the always to save the running configuration
 
+## Ansible F5 AS3 Exercises ./playbooks/11-as3.yml
+- [FAS Ansible Workshop 101 > Exercise 3.0 - Introduction to AS3](https://clouddocs.f5.com/training/fas-ansible-workshop-101/3.0-as3-intro.html)
 
-## Ansible F5 AS3 Exercises
-- To be continued...
+- AS3 requires a JSON template to be handed as an API call to F5 BIG-IP.
+- `tenant_base.j2` is a standard template that F5 Networks will provide to their customers. The important parts to understand are:
+  - "WorkshopExample": { - this is the name of our Tenant. The AS3 will create a tenant for this particular - WebApp. A WebApp in this case is a virtual server that load balances between our two web servers.
+  - "class": "Tenant", - this indicates that WorkshopExample is a Tenant.
+  - as3_app_body - this is a variable that will point to the second jinja2 template which is the actual WebApp.
+
+- This template `as3_template.j2` is a JSON representation of the Web Application. The important parts to note are:
+  - There is a virtual server named _serviceMain_.
+    - The template can use variables just like tasks do in previous exercises. In this case the virtual IP address is the _private_ip_ from our inventory.
+  - There is a _Pool_ named _app_pool_
+    - The _jinja2_ template can use a loop to grab all the pool members (which points to our web servers group that will be elaborated on below).
+- In Summary the `tenant_base.j2` and `as3_template.j2` create one single JSON payload that represents a Web Application. We will build a Playbook that will send this JSON payload to a F5 BIG-IP.
