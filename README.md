@@ -23,6 +23,12 @@ $ pip install ansible
 $ pip install jmespath
 ```
 
+* in my current instalation the *Ansible* was crashing, unless I installed *Python v3.7* and pointed the interpreter in the configuration to this version `./ansible.cfg`:
+  ```
+  [defaults]
+  interpreter_python = /usr/local/opt/python@3.7/libexec/bin/python
+  ```
+
 ## Config Files
 ~/.ansible.cfg:
 ```
@@ -57,7 +63,7 @@ host2 ansible_host=10.1.20.6 ansible_user=centos private_ip=10.1.1.6
 
 ## Demo Notes
 - Ansible part is based on the *F5 Agility 2020 - 🦅 Ansible Lab 101*, F5ers can use the UDF
-- for local deployment use F5-CLI/DO deployment from my [f5-demo-lab](https://github.com/erkac/f5-demo-lab)
+- for local deployment use F5-CLI/DO deployment from my [f5-demo-lab](https://github.com/erkac/f5-demo-lab) in order to onboard and license the *BIG-IP*
 
 ## Playbook examples
 
