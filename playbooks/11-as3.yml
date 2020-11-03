@@ -1,5 +1,5 @@
 ---
-- name: LINKLIGHT AS3
+- name: BIG-IP AS3
   hosts: lb
   connection: local
   gather_facts: false
@@ -23,4 +23,4 @@
       user: "{{ ansible_user }}"
       password: "{{ ansible_pass }}"
       validate_certs: no
-  delegate_to: localhost
+    delegate_to: localhost
