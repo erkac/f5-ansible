@@ -1,6 +1,6 @@
 # F5 and Ansible Demo Deployment
 
-* Basic series of onboarding steps to bootstrap a BIG-IQ system [f5devcentral/ansible-role-bigiq_onboard](f5devcentral/ansible-role-bigiq_onboard)
+* Basic series of onboarding steps to bootstrap a BIG-IQ system [f5devcentral/ansible-role-bigiq_onboard](https://github.com/f5devcentral/ansible-role-bigiq_onboard)
 
 ## Ansible Installation
 
@@ -69,10 +69,11 @@ host2 ansible_host=10.1.20.6 ansible_user=centos private_ip=10.1.1.6
 
 ### ./playbooks/1-bigip-facts.yml
 ```shell
-$ ansible-playbook bigip-facts.yml
-$ ansible-playbook bigip-facts.yml --skip-tags=debug
+$ ansible-playbook -i hosts ./playbooks/1-bigip-facts.yml
+$ # OR
+$ ansible-playbook -i hosts ./playbooks/1-bigip-facts.yml --skip-tags=debug
 ```
-- skips tasks with spacific tag _debug_
+- skips tasks with specific tag _debug_
 - in this case output from _COLLECT BIG-IP FACTS_ is stored in _device_facts_
 - displayed by the _DISPLAY COMPLETE BIG-IP SYSTEM INFORMATION_ task using var: device_facts
 
