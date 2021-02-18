@@ -23,7 +23,7 @@ $ pip install ansible
 $ pip install jmespath
 ```
 
-* in my current instalation the *Ansible* was crashing, unless I installed *Python v3.7* and pointed the interpreter in the configuration to this version `./ansible.cfg`:
+* in my current installation the *Ansible* was crashing, unless I installed *Python v3.7* and pointed the interpreter in the configuration to this version `./ansible.cfg`:
   ```
   [defaults]
   interpreter_python = /usr/local/opt/python@3.7/libexec/bin/python
@@ -93,10 +93,10 @@ $ ansible-playbook bigip-facts.yml --skip-tags=debug
 🥳
 
 ### ./playbooks/6-bigip-irule.yml
-- irule1 and irule2 has to be in the current folder, even the ansible whould find those in subfolders, but then creating that iRule on F5 cause issues if the name contains some subfolders
+- iRule1 and iRule2 has to be in the current folder, even the ansible would find those in subfolders, but then creating that iRule on F5 cause issues if the name contains some subfolders
 
 ### ./playbooks/7-bigip-config.yml
-- **configuration** has to be **saved manualy**
+- **configuration** has to be **saved manually**
 
 ### ./playbooks/8-disable-pool-member.yml
 - Once you set the provider you can re-use this key in future tasks instead of giving the server/user/password/server_port and validate_certs info to each task.
@@ -112,7 +112,7 @@ $ ansible-playbook bigip-facts.yml --skip-tags=debug
 
 ### ./playbooks/10-bigip-error-handling.yml
 - add the _block_ stanza and the first task
-- add the _rescue_ stanza. The tasks under the rescue stanza will be identical to ./playbooks/9-bigip-delete-configuration.yml. The bigip_pool_member task does not need to re-enterered since by deleting the nodes and pool will remove all configuration. If any task within the block fails, the _rescue_ stanza will execute in order. The VIP, pool, and nodes will be removed gracefully
+- add the _rescue_ stanza. The tasks under the rescue stanza will be identical to ./playbooks/9-bigip-delete-configuration.yml. The bigip_pool_member task does not need to re-entered since by deleting the nodes and pool will remove all configuration. If any task within the block fails, the _rescue_ stanza will execute in order. The VIP, pool, and nodes will be removed gracefully
 - add the always to save the running configuration
 
 ## Ansible F5 AS3 Exercises ./playbooks/11-as3.yml
@@ -120,9 +120,9 @@ $ ansible-playbook bigip-facts.yml --skip-tags=debug
 
 - AS3 requires a JSON template to be handed as an API call to F5 BIG-IP.
 - `tenant_base.j2` is a standard template that F5 Networks will provide to their customers. The important parts to understand are:
-  - "WorkshopExample": { - this is the name of our Tenant. The AS3 will create a tenant for this particular - WebApp. A WebApp in this case is a virtual server that load balances between our two web servers.
-  - "class": "Tenant", - this indicates that WorkshopExample is a Tenant.
-  - as3_app_body - this is a variable that will point to the second jinja2 template which is the actual WebApp.
+  - `"WorkshopExample": {` - this is the name of our Tenant. The AS3 will create a tenant for this particular WebApp. A WebApp in this case is a virtual server that load balances between our two web servers.
+  - `"class": "Tenant",` - this indicates that WorkshopExample is a Tenant.
+  - `as3_app_body` - this is a variable that will point to the second _jinja2_ template which is the actual WebApp.
 
 - This template `as3_template.j2` is a JSON representation of the Web Application. The important parts to note are:
   - There is a virtual server named _serviceMain_.
