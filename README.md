@@ -23,10 +23,10 @@ $ pip install ansible
 $ pip install jmespath
 ```
 
-* in my previous installation on my _macOS_, _Ansible_ was crashing, unless I installed *Python v3.7* and pointed the interpreter in the configuration to this version `./ansible.cfg`:
+* make sure that you installed _Ansible_ with all the required dependencies. I had to point it to different _Python_ version as the module dependencies was crashing it `./ansible.cfg`:
   ```
   [defaults]
-  interpreter_python = /usr/local/opt/python@3.7/libexec/bin/python
+  interpreter_python = /usr/local/Cellar/python@3.10/3.10.10_1/bin/python3.10
   ```
 
   > This is not the case anymore
